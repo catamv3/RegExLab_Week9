@@ -15,7 +15,12 @@ import java.net.URL;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+/**
+ * Controller class to handle processes related to the registration form fxml.
+ * This file uses RegEx to validate user input data.
+ */
 public class HelloController {
+    //declare class members
     @FXML
     private Label addOutputLabel, emailLabel, zipLabel, bdayLabel;
 
@@ -26,7 +31,19 @@ public class HelloController {
     private Button addButton;
     private boolean flag;
 
+    /**
+     * this method initializes the registration controller with text fields that will validate their respective
+     * informaiton before a user can proceed to the next to add more data.
+     */
     public void initialize(){
+
+        /**
+         * this lambda expression does not allow the user to advance to the next textfield if there is an error in their input
+         * the flag relates to the flag (if any), produced when the input is compared to the regex.
+         * @parm - this method does not accept any parameters.
+         * @return - this method does not return anything
+         * @throws - this method at large does not throw any errors, however sub parts of this method may.
+         */
         nameField.setOnKeyPressed(event -> {
 
             if (event.getCode() != KeyCode.TAB && flag){
@@ -38,6 +55,14 @@ public class HelloController {
 
         });
 
+        /**
+         * this method adds a listener to the namefield element. if the data entered does not match the pattern,
+         * the user can not advance to the next textfield.
+         *
+         * Valid names entail a first and last name, seperated by one space. the first name must be between
+         * 2 and no more than 12 letters, the last name must be between
+         *          * 2 and no more than 13 letters
+         */
         nameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("Name text is focused");
@@ -48,6 +73,9 @@ public class HelloController {
                     nameField.setBorder(null);
                 }
                 else
+                //if there is an error with the users data, change the appearance of the box
+                //show on the screen that the user's name is invalid
+                //update flag
                 {
                     nameField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     nameField.setVisible(true);
@@ -62,6 +90,10 @@ public class HelloController {
             }
         });
 
+        /**
+         * this lambda expression does not allow the user to advance to the next textfield if there is an error in their input
+         * the flag relates to the flag (if any), produced when the input is compared to the regex.
+         */
         emailField.setOnKeyPressed(event -> {
 
             if (event.getCode() != KeyCode.TAB && flag){
@@ -73,7 +105,14 @@ public class HelloController {
 
         });
 
-
+        /**
+         * this method adds a listener to the emailField element to validate the user input.
+         *
+         * Valid email:
+         * 1. starts with a letter
+         * 2. contains any mix of lowercase letters and digits 0-9
+         * 3. must end with @farmingdale.edu
+         */
         emailField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("Email text is focused");
@@ -84,6 +123,9 @@ public class HelloController {
                     emailField.setBorder(null);
                 }
                 else
+                //if there is an error with the users data, change the appearance of the box
+                //show on the screen that the user's email is invalid
+                //update flag
                 {
                     emailField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     emailField.setVisible(true);
@@ -96,6 +138,10 @@ public class HelloController {
             }
         });
 
+        /**
+         * this lambda expression does not allow the user to advance to the next birthday if there is an error in their input
+         * the flag relates to the flag (if any), produced when the input is compared to the regex.
+         */
         bdayField.setOnKeyPressed(event -> {
             if (event.getCode() != KeyCode.TAB && flag){
                 bdayField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
@@ -105,17 +151,28 @@ public class HelloController {
             }
         });
 
-
+        /**
+         * this method adds a listener to the bdayField element to validate the user input.
+         *
+         * Valid birthday:
+         * 1. user enters date in format MM/DD/YYYY
+         * 2. user must be born between 1900-2004
+         * 3. single digit months/days preceeded by 0;
+         */
         bdayField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("Bday field is focused");
             } else {
+                //bday format
                 if(bdayField.getText().matches("(((0[1-9]|1[0-2])[\\W]){2}((([1][9])[0-9][0-9])|(([2][0])[0][0-4])))"))
                 {
                     zipField.setEditable(true);
                     bdayField.setBorder(null);
                 }
                 else
+                //if there is an error with the users data, change the appearance of the box
+                //show on the screen that the user's bday is invalid
+                //update flag
                 {
                     bdayField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     bdayField.setVisible(true);
@@ -127,6 +184,11 @@ public class HelloController {
             }
         });
 
+
+        /**
+         * this lambda expression does not allow the user to advance to the next zipField if there is an error in their input
+         * the flag relates to the flag (if any), produced when the input is compared to the regex.
+         */
         zipField.setOnKeyPressed(event -> {
             if (event.getCode() != KeyCode.TAB && flag){
                 zipField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
@@ -136,14 +198,28 @@ public class HelloController {
             }
         });
 
-
+        /**
+         * MUST READ:
+         * this method adds a listener to the zipField element to validate the user input.
+         * in order for the user to proceed to the next screen by tapping the button, all fields must be validated.
+         * once the zip is validated, this method should add functionality to the button to switch between screens.
+         *
+         * Valid Zipcode:
+         * 1. begins with "117"
+         * 5 digits long (last twp digits are any digit b/w 0-9).
+         */
         zipField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("ZIP field is focused");
             } else {
+                //zip format "117-XX"
                 if(zipField.getText().matches("([1][1][7])[0-9][0-9]"))
                 {
                     addButton.setOnAction(event -> {
+
+                        /*
+                        if the data is valid, allow user to be able to switch to the next scene.
+                         */
 
                         try {
                             System.out.println("All user data valid! The button was clicked and the user" +
@@ -151,18 +227,23 @@ public class HelloController {
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayView.fxml"));
                             Scene scene = new Scene(fxmlLoader.load(), 850, 560);
                             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            //scene.getStylesheets().add(getClass().getResource("sunset.css").toExternalForm());
                             stage.setScene(scene);
+
                             stage.show();
 
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-                        //scene.getStylesheets().add(getClass().getResource("sunset.css").toExternalForm());
+
 
                     });
                     zipField.setBorder(null);
                 }
                 else
+                //if there is an error with the users data, change the appearance of the box
+                //show on the screen that the user's zip is invalid
+                //update flag
                 {
                     zipField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     zipField.setVisible(true);
@@ -208,6 +289,9 @@ public class HelloController {
 
      */
 
+    /**
+     * This method check
+     */
     @FXML
     public void checkEmail(){
         boolean flag;

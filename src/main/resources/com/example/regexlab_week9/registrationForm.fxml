@@ -20,22 +20,22 @@
          <children>
             <VBox prefHeight="225.0" prefWidth="91.0">
                <children>
-                  <Label text="Name">
+                  <Label styleClass="magenta-label" text="Name">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="10.0" layoutY="10.0" text="Email">
+                  <Label layoutX="10.0" layoutY="10.0" styleClass="sunset-orange-label" text="Email">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="10.0" layoutY="47.0" text="Birthday">
+                  <Label layoutX="10.0" layoutY="47.0" styleClass="neon-yellow-label" text="Birthday">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="10.0" layoutY="85.0" text="Zip code">
+                  <Label layoutX="10.0" layoutY="85.0" styleClass="gold-label" text="Zip code">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -56,26 +56,38 @@
                      <padding>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
                   </TextField>
                   <TextField fx:id="bdayField" layoutX="10.0" layoutY="48.0">
                      <padding>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
                   </TextField>
                   <TextField fx:id="zipField" layoutX="10.0" layoutY="75.0">
                      <padding>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
                   </TextField>
                </children>
             </VBox>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#checkUserName" text="add" />
-                  <Label fx:id="addOutputLabel" layoutX="63.0" layoutY="1.0" prefHeight="25.0" prefWidth="67.0" />
+                  <Label fx:id="addOutputLabel" layoutX="16.0" layoutY="7.0" prefHeight="25.0" prefWidth="181.0" styleClass="magenta-label" />
+                  <Label fx:id="emailLabel" layoutY="46.0" prefHeight="25.0" prefWidth="197.0" styleClass="sunset-orange-label" />
+                  <Label fx:id="bdayLabel" layoutY="83.0" prefHeight="25.0" prefWidth="197.0" styleClass="neon-yellow-label" />
+                  <Label fx:id="zipLabel" layoutY="120.0" prefHeight="25.0" prefWidth="197.0" styleClass="gold-label" />
                </children>
             </AnchorPane>
          </children>
       </HBox>
+      <Button fx:id="addButton" layoutX="235.0" layoutY="304.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="171.0" text="Add Userr" textFill="#b91bbc" />
    </children>
 </AnchorPane>

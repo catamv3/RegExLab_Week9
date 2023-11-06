@@ -1,6 +1,7 @@
 package com.example.regexlab_week9;
 
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 
 /**
@@ -36,7 +37,6 @@ public class DisplayController {//open class
      * initialize method.
      */
     public void initialize(){
-
     }
 
 

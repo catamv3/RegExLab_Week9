@@ -3,6 +3,7 @@ package com.example.regexlab_week9;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,7 +36,7 @@ public class HelloController {
      * this method initializes the registration controller with text fields that will validate their respective
      * informaiton before a user can proceed to the next to add more data.
      */
-    public void initialize(){
+    public void initialize() {
 
         /**
          * this lambda expression does not allow the user to advance to the next textfield if there is an error in their input
@@ -46,11 +47,11 @@ public class HelloController {
          */
         nameField.setOnKeyPressed(event -> {
 
-            if (event.getCode() != KeyCode.TAB && flag){
+            if (event.getCode() != KeyCode.TAB && flag) {
                 nameField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
                 addOutputLabel.setText("");
 
-                flag=false;
+                flag = false;
             }
 
         });
@@ -67,12 +68,10 @@ public class HelloController {
             if (newValue) {
                 System.out.println("Name text is focused");
             } else {
-                if(nameField.getText().matches("[A-Za-z]{2,12}[\\s][A-Za-z]{2,13}"))
-                {
+                if (nameField.getText().matches("[A-Za-z]{2,12}[\\s][A-Za-z]{2,13}")) {
                     emailField.setEditable(true);
                     nameField.setBorder(null);
-                }
-                else
+                } else
                 //if there is an error with the users data, change the appearance of the box
                 //show on the screen that the user's name is invalid
                 //update flag
@@ -80,11 +79,11 @@ public class HelloController {
                     nameField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     nameField.setVisible(true);
                     nameField.requestFocus();
-                    addOutputLabel.setText(nameField.getText()+ " is not valid name");
+                    addOutputLabel.setText(nameField.getText() + " is not valid name");
                     emailField.setEditable(false);
                     bdayField.setEditable(false);
                     zipField.setEditable(false);
-                    flag=true;
+                    flag = true;
                 }
 
             }
@@ -96,11 +95,11 @@ public class HelloController {
          */
         emailField.setOnKeyPressed(event -> {
 
-            if (event.getCode() != KeyCode.TAB && flag){
+            if (event.getCode() != KeyCode.TAB && flag) {
                 emailField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
                 emailLabel.setText("");
 
-                flag=false;
+                flag = false;
             }
 
         });
@@ -117,12 +116,10 @@ public class HelloController {
             if (newValue) {
                 System.out.println("Email text is focused");
             } else {
-                if(emailField.getText().matches("[a-z][a-z0-9]{2,6}@farmingdale.edu"))
-                {
+                if (emailField.getText().matches("[a-z][a-z0-9]{2,6}@farmingdale.edu")) {
                     bdayField.setEditable(true);
                     emailField.setBorder(null);
-                }
-                else
+                } else
                 //if there is an error with the users data, change the appearance of the box
                 //show on the screen that the user's email is invalid
                 //update flag
@@ -130,9 +127,9 @@ public class HelloController {
                     emailField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     emailField.setVisible(true);
                     emailField.requestFocus();
-                    emailLabel.setText(emailField.getText()+ " is not valid farmingdale email");
+                    emailLabel.setText(emailField.getText() + " is not valid farmingdale email");
                     bdayField.setEditable(false);
-                    flag=true;
+                    flag = true;
                 }
 
             }
@@ -143,11 +140,11 @@ public class HelloController {
          * the flag relates to the flag (if any), produced when the input is compared to the regex.
          */
         bdayField.setOnKeyPressed(event -> {
-            if (event.getCode() != KeyCode.TAB && flag){
+            if (event.getCode() != KeyCode.TAB && flag) {
                 bdayField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
                 bdayLabel.setText("");
 
-                flag=false;
+                flag = false;
             }
         });
 
@@ -164,12 +161,10 @@ public class HelloController {
                 System.out.println("Bday field is focused");
             } else {
                 //bday format
-                if(bdayField.getText().matches("(((0[1-9]|1[0-2])[\\W]){2}((([1][9])[0-9][0-9])|(([2][0])[0][0-4])))"))
-                {
+                if (bdayField.getText().matches("(((0[1-9]|1[0-2])[\\W]){2}((([1][9])[0-9][0-9])|(([2][0])[0][0-4])))")) {
                     zipField.setEditable(true);
                     bdayField.setBorder(null);
-                }
-                else
+                } else
                 //if there is an error with the users data, change the appearance of the box
                 //show on the screen that the user's bday is invalid
                 //update flag
@@ -177,9 +172,9 @@ public class HelloController {
                     bdayField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     bdayField.setVisible(true);
                     bdayField.requestFocus();
-                    bdayLabel.setText(bdayField.getText()+ " is not valid bday");
+                    bdayLabel.setText(bdayField.getText() + " is not valid bday");
                     zipField.setEditable(false);
-                    flag=true;
+                    flag = true;
                 }
             }
         });
@@ -190,11 +185,11 @@ public class HelloController {
          * the flag relates to the flag (if any), produced when the input is compared to the regex.
          */
         zipField.setOnKeyPressed(event -> {
-            if (event.getCode() != KeyCode.TAB && flag){
+            if (event.getCode() != KeyCode.TAB && flag) {
                 zipField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
                 zipLabel.setText("");
 
-                flag=false;
+                flag = false;
             }
         });
 
@@ -213,25 +208,19 @@ public class HelloController {
                 System.out.println("ZIP field is focused");
             } else {
                 //zip format "117-XX"
-                if(zipField.getText().matches("([1][1][7])[0-9][0-9]"))
-                {
+                if (zipField.getText().matches("([1][1][7])[0-9][0-9]")) {
                     addButton.setOnAction(event -> {
 
-                        /*
-                        if the data is valid, allow user to be able to switch to the next scene.
-                         */
-
                         try {
-                            System.out.println("All user data valid! The button was clicked and the user" +
-                                    "is ready to be added to the database!");
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayView.fxml"));
-                            Scene scene = new Scene(fxmlLoader.load(), 850, 560);
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            //scene.getStylesheets().add(getClass().getResource("sunset.css").toExternalForm());
+                            Parent root = fxmlLoader.load();
+                            DisplayController controller = fxmlLoader.getController();
+                            controller.setUserInfo(nameField.getText(), emailField.getText(), bdayField.getText(), zipField.getText());
+
+                            Scene scene = new Scene(root, 850, 560);
+                            Stage stage = (Stage) addButton.getScene().getWindow();
                             stage.setScene(scene);
-
                             stage.show();
-
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -239,8 +228,7 @@ public class HelloController {
 
                     });
                     zipField.setBorder(null);
-                }
-                else
+                } else
                 //if there is an error with the users data, change the appearance of the box
                 //show on the screen that the user's zip is invalid
                 //update flag
@@ -248,17 +236,26 @@ public class HelloController {
                     zipField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     zipField.setVisible(true);
                     zipField.requestFocus();
-                    zipLabel.setText(zipField.getText()+ " is not valid ZIP CODE");
-                //    zipField.setEditable(false);
-                    flag=true;
+                    zipLabel.setText(zipField.getText() + " is not valid ZIP CODE");
+                    //    zipField.setEditable(false);
+                    flag = true;
                 }
             }
         });
-
-
     }
 
+    @FXML
+    public void onAddButtonClicked() {
+        if (validateUserData()) {
+            // If user data is valid, switch to the Display scene
 
+        }
+    }
+
+    private boolean validateUserData() {
+        // Add your validation logic here and return true if data is valid, false otherwise
+        return false;
+    }
 
     @FXML
     public void checkUserName(){

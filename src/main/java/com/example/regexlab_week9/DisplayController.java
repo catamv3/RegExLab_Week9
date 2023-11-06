@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 public class DisplayController {//open class
     private String name, email, birthday, zip;
     @FXML
-    private Label nam,emai, birthda,zi;
+    private Label nameLabel, emailLabel, bdayLabel, zipLabel;
 
     /**
      * This is a default constructor.
@@ -27,10 +27,10 @@ public class DisplayController {//open class
      * @param z zip
      */
     public DisplayController(String n,String e,String b,String z){
-        name = n;
-        email=e;
-        birthday = b;
-        zip = z;
+        nameLabel.setText(n);
+        emailLabel.setText(e);
+        bdayLabel.setText(b);
+        zipLabel.setText(z);
     }
 
     /**
@@ -39,5 +39,11 @@ public class DisplayController {//open class
     public void initialize(){
     }
 
+    public void setUserInfo(String name, String email, String birthday, String zip) {
+        nameLabel.setText(name);
+        emailLabel.setText(email);
+        bdayLabel.setText(birthday);
+        zipLabel.setText(zip);
+    }
 
 }

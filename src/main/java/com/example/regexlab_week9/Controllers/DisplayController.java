@@ -1,4 +1,4 @@
-package com.example.regexlab_week9;
+package com.example.regexlab_week9.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -38,6 +38,7 @@ public class DisplayController {//open class
      */
     public void initialize(){
     }
+
 
     public void setUserInfo(String name, String email, String birthday, String zip) {
         nameLabel.setText(name);

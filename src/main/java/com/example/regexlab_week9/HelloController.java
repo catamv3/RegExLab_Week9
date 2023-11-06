@@ -1,8 +1,8 @@
 package com.example.regexlab_week9;
 
+import com.example.regexlab_week9.Controllers.DisplayController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,8 +12,6 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
@@ -212,7 +210,9 @@ public class HelloController {
                     addButton.setOnAction(event -> {
 
                         try {
+                            //loading the fxml file
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayView.fxml"));
+                            //declare a new root w that fxml file
                             Parent root = fxmlLoader.load();
                             DisplayController controller = fxmlLoader.getController();
                             controller.setUserInfo(nameField.getText(), emailField.getText(), bdayField.getText(), zipField.getText());

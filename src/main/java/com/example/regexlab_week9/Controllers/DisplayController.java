@@ -39,7 +39,13 @@ public class DisplayController {//open class
     public void initialize(){
     }
 
-
+    /**
+     * This method sets the current controller with the provided values
+     * @param name -- user name
+     * @param email -- user email
+     * @param birthday -- user bday
+     * @param zip -- user zip
+     */
     public void setUserInfo(String name, String email, String birthday, String zip) {
         nameLabel.setText(name);
         emailLabel.setText(email);

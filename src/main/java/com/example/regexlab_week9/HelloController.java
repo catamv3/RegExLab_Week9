@@ -219,6 +219,7 @@ public class HelloController {
 
                             Scene scene = new Scene(root, 850, 560);
                             Stage stage = (Stage) addButton.getScene().getWindow();
+                            scene.getStylesheets().add("sunset.css");
                             stage.setScene(scene);
                             stage.show();
                         } catch (IOException e) {

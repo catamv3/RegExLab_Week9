@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.regexlab_week9.HelloController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="lcascading-vbox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.regexlab_week9.HelloController">
    <children>
       <Label layoutX="228.0" layoutY="42.0" text="Registration Form">
          <font>
@@ -84,10 +84,10 @@
                   <Label fx:id="emailLabel" layoutY="46.0" prefHeight="25.0" prefWidth="197.0" styleClass="sunset-orange-label" />
                   <Label fx:id="bdayLabel" layoutY="83.0" prefHeight="25.0" prefWidth="197.0" styleClass="neon-yellow-label" />
                   <Label fx:id="zipLabel" layoutY="120.0" prefHeight="25.0" prefWidth="197.0" styleClass="gold-label" />
+                  <Button fx:id="addButton" layoutX="13.0" layoutY="56.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="171.0" text="Add User" textFill="#b91bbc" />
                </children>
             </AnchorPane>
          </children>
       </HBox>
-      <Button fx:id="addButton" layoutX="235.0" layoutY="304.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="171.0" text="Add Userr" textFill="#b91bbc" />
    </children>
 </AnchorPane>

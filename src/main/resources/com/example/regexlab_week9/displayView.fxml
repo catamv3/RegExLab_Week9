@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.regexlab_week9.DisplayController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="lcascading-vbox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.regexlab_week9.DisplayController">
    <children>
       <Label layoutX="73.0" layoutY="35.0" prefHeight="36.0" prefWidth="219.0" text="User Profile">
          <font>
@@ -19,22 +18,22 @@
          <children>
             <VBox prefHeight="198.0" prefWidth="181.0">
                <children>
-                  <Label text="Name: ">
+                  <Label styleClass="magenta-label" text="Name: ">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="10.0" layoutY="10.0" text="Email:">
+                  <Label layoutX="10.0" layoutY="10.0" styleClass="sunset-orange-label" text="Email:">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="10.0" layoutY="47.0" text="Birthday:">
+                  <Label layoutX="10.0" layoutY="47.0" styleClass="neon-yellow-label" text="Birthday:">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="10.0" layoutY="85.0" text="ZIP: ">
+                  <Label layoutX="10.0" layoutY="85.0" styleClass="gold-label" text="ZIP: ">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -43,7 +42,7 @@
             </VBox>
             <VBox layoutX="10.0" layoutY="10.0" prefHeight="198.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="nameLabel" prefHeight="17.0" prefWidth="147.0">
+                  <Label fx:id="nameLabel" prefHeight="36.0" prefWidth="188.0" styleClass="magenta-label">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -51,7 +50,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="emailLabel" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="147.0">
+                  <Label fx:id="emailLabel" layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="196.0" styleClass="sunset-orange-label">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -59,7 +58,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="bdayLabel" layoutX="10.0" layoutY="46.0" prefHeight="17.0" prefWidth="147.0">
+                  <Label fx:id="bdayLabel" layoutX="10.0" layoutY="46.0" prefHeight="36.0" prefWidth="217.0" styleClass="neon-yellow-label">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -67,7 +66,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="zipLabel" layoutX="10.0" layoutY="82.0" prefHeight="17.0" prefWidth="147.0">
+                  <Label fx:id="zipLabel" layoutX="10.0" layoutY="82.0" prefHeight="36.0" prefWidth="221.0" styleClass="gold-label">
                      <font>
                         <Font size="16.0" />
                      </font>

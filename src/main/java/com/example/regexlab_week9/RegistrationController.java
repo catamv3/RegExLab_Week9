@@ -18,16 +18,16 @@ import java.util.regex.Pattern;
  * Controller class to handle processes related to the registration form fxml.
  * This file uses RegEx to validate user input data.
  */
-public class HelloController {
+public class RegistrationController {
     //declare class members
     @FXML
-    private Label addOutputLabel, emailLabel, zipLabel, bdayLabel;
+    private Label fscidLabel, nameLabel, emailLabel, majorLabel, passwordLabel;
 
     @FXML
-    private TextField nameField, emailField, bdayField, zipField;
+    private TextField fscidField, nameField, emailField, majorField, passwordField;
 
     @FXML
-    private Button addButton;
+    private Button createAccountButton;
     private boolean flag;
 
     /**
@@ -35,6 +35,16 @@ public class HelloController {
      * informaiton before a user can proceed to the next to add more data.
      */
     public void initialize() {
+
+        fscidField.setOnKeyPressed(e ->{
+            if (e.getCode() != KeyCode.TAB && flag) {
+                nameField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
+                .setText("");
+
+                flag = false;
+            }
+        } );
+
 
         /**
          * this lambda expression does not allow the user to advance to the next textfield if there is an error in their input
@@ -146,6 +156,7 @@ public class HelloController {
             }
         });
 
+
         /**
          * this method adds a listener to the bdayField element to validate the user input.
          *
@@ -207,7 +218,7 @@ public class HelloController {
             } else {
                 //zip format "117-XX"
                 if (zipField.getText().matches("([1][1][7])[0-9][0-9]")) {
-                    addButton.setOnAction(event -> {
+                    createAccountButton.setOnAction(event -> {
 
                         try {
                             //loading the fxml file
@@ -218,7 +229,7 @@ public class HelloController {
                             controller.setUserInfo(nameField.getText(), emailField.getText(), bdayField.getText(), zipField.getText());
 
                             Scene scene = new Scene(root, 850, 560);
-                            Stage stage = (Stage) addButton.getScene().getWindow();
+                            Stage stage = (Stage) createAccountButton.getScene().getWindow();
                             scene.getStylesheets().add("sunset.css");
                             stage.setScene(scene);
                             stage.show();

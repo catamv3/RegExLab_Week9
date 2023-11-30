@@ -22,6 +22,11 @@
     -fx-background-color: linear-gradient(to bottom, #FFABAB, #FFC3A0, #FF677D, #D4A5A5, #DC3D3D);
 }
 
+.orange-label {
+       -fx-text-fill: orange;
+}
+
+
 /*  Top pane */
 .menu-bar {
     -fx-background-color: #FF9100; /* Yellow */

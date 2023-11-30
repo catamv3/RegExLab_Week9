@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 public class DisplayController {//open class
     private String name, email, birthday, zip;
     @FXML
-    private Label nameLabel, emailLabel, bdayLabel, zipLabel;
+    private Label fscidLabel, nameLabel, emailLabel, majorLabel, passwordLabel;
 
     /**
      * This is a default constructor.
@@ -23,14 +23,15 @@ public class DisplayController {//open class
      * this will instantiate a DisplayController with readily available values to be used to display on the screen.
      * @param n name
      * @param e email
-     * @param b birthday
-     * @param z zip
-     */
-    public DisplayController(String n,String e,String b,String z){
+     * @param m major
+     * @param p password
+     * */
+    public DisplayController(String i, String n,String e,String m,String p){
+        fscidLabel.setText(i);
         nameLabel.setText(n);
         emailLabel.setText(e);
-        bdayLabel.setText(b);
-        zipLabel.setText(z);
+        majorLabel.setText(m);
+        passwordLabel.setText(p);
     }
 
     /**
@@ -43,14 +44,15 @@ public class DisplayController {//open class
      * This method sets the current controller with the provided values
      * @param name -- user name
      * @param email -- user email
-     * @param birthday -- user bday
-     * @param zip -- user zip
+     * @param major -- user bday
+     * @param password -- user zip
      */
-    public void setUserInfo(String name, String email, String birthday, String zip) {
+    public void setUserInfo(String id, String name, String email, String major, String password) {
+        fscidLabel.setText(id);
         nameLabel.setText(name);
         emailLabel.setText(email);
-        bdayLabel.setText(birthday);
-        zipLabel.setText(zip);
+        majorLabel.setText(major);
+        passwordLabel.setText(password);
     }
 
 }

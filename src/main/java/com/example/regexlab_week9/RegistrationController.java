@@ -38,12 +38,41 @@ public class RegistrationController {
 
         fscidField.setOnKeyPressed(e ->{
             if (e.getCode() != KeyCode.TAB && flag) {
-                nameField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
-                .setText("");
+                fscidField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
+                fscidLabel.setText("");
 
                 flag = false;
             }
         } );
+
+        fscidField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                System.out.println("FSCID text is focused");
+            } else {
+                if (fscidField.getText().matches("[a-z][a-z0-9]{2,6}")) {
+                    nameField.setEditable(true);
+                    fscidField.setBorder(null);
+                } else
+                //if there is an error with the users data, change the appearance of the box
+                //show on the screen that the user's name is invalid
+                //update flag
+                {
+                    fscidField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    fscidField.setVisible(true);
+                    fscidField.requestFocus();
+                    fscidLabel.setText(fscidField.getText() + " is not valid FSC ID");
+                    nameField.setEditable(false);
+                    emailField.setEditable(false);
+                    majorField.setEditable(false);
+                    passwordField.setEditable(false);
+                    flag = true;
+                }
+
+            }
+        });
+
+
+
 
 
         /**
@@ -57,12 +86,14 @@ public class RegistrationController {
 
             if (event.getCode() != KeyCode.TAB && flag) {
                 nameField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
-                addOutputLabel.setText("");
+                nameLabel.setText("");
 
                 flag = false;
             }
 
         });
+
+
 
         /**
          * this method adds a listener to the namefield element. if the data entered does not match the pattern,
@@ -87,10 +118,10 @@ public class RegistrationController {
                     nameField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     nameField.setVisible(true);
                     nameField.requestFocus();
-                    addOutputLabel.setText(nameField.getText() + " is not valid name");
+                    nameLabel.setText(nameField.getText() + " is not valid name");
                     emailField.setEditable(false);
-                    bdayField.setEditable(false);
-                    zipField.setEditable(false);
+                    majorField.setEditable(false);
+                    passwordField.setEditable(false);
                     flag = true;
                 }
 
@@ -125,7 +156,7 @@ public class RegistrationController {
                 System.out.println("Email text is focused");
             } else {
                 if (emailField.getText().matches("[a-z][a-z0-9]{2,6}@farmingdale.edu")) {
-                    bdayField.setEditable(true);
+                    majorField.setEditable(true);
                     emailField.setBorder(null);
                 } else
                 //if there is an error with the users data, change the appearance of the box
@@ -136,7 +167,8 @@ public class RegistrationController {
                     emailField.setVisible(true);
                     emailField.requestFocus();
                     emailLabel.setText(emailField.getText() + " is not valid farmingdale email");
-                    bdayField.setEditable(false);
+                    majorField.setEditable(false);
+                    passwordField.setEditable(false);
                     flag = true;
                 }
 
@@ -147,10 +179,10 @@ public class RegistrationController {
          * this lambda expression does not allow the user to advance to the next birthday if there is an error in their input
          * the flag relates to the flag (if any), produced when the input is compared to the regex.
          */
-        bdayField.setOnKeyPressed(event -> {
+        majorField.setOnKeyPressed(event -> {
             if (event.getCode() != KeyCode.TAB && flag) {
-                bdayField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
-                bdayLabel.setText("");
+                majorField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
+                majorField.setText("");
 
                 flag = false;
             }
@@ -165,24 +197,24 @@ public class RegistrationController {
          * 2. user must be born between 1900-2004
          * 3. single digit months/days preceeded by 0;
          */
-        bdayField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        majorField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
-                System.out.println("Bday field is focused");
+                System.out.println("major field is focused");
             } else {
                 //bday format
-                if (bdayField.getText().matches("(((0[1-9]|1[0-2])[\\W]){2}((([1][9])[0-9][0-9])|(([2][0])[0][0-4])))")) {
-                    zipField.setEditable(true);
-                    bdayField.setBorder(null);
+                if (majorField.getText().toUpperCase().matches("[A-Z]{3}")) {
+                    majorField.setEditable(true);
+                    majorField.setBorder(null);
                 } else
                 //if there is an error with the users data, change the appearance of the box
                 //show on the screen that the user's bday is invalid
                 //update flag
                 {
-                    bdayField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
-                    bdayField.setVisible(true);
-                    bdayField.requestFocus();
-                    bdayLabel.setText(bdayField.getText() + " is not valid bday");
-                    zipField.setEditable(false);
+                    majorField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    majorField.setVisible(true);
+                    majorField.requestFocus();
+                    majorLabel.setText(majorField.getText() + " is not valid major");
+                    passwordField.setEditable(false);
                     flag = true;
                 }
             }
@@ -193,10 +225,10 @@ public class RegistrationController {
          * this lambda expression does not allow the user to advance to the next zipField if there is an error in their input
          * the flag relates to the flag (if any), produced when the input is compared to the regex.
          */
-        zipField.setOnKeyPressed(event -> {
+        passwordField.setOnKeyPressed(event -> {
             if (event.getCode() != KeyCode.TAB && flag) {
-                zipField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
-                zipLabel.setText("");
+                passwordField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
+                passwordField.setText("");
 
                 flag = false;
             }
@@ -212,12 +244,12 @@ public class RegistrationController {
          * 1. begins with "117"
          * 5 digits long (last twp digits are any digit b/w 0-9).
          */
-        zipField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        passwordField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
-                System.out.println("ZIP field is focused");
+                System.out.println("password field is focused");
             } else {
                 //zip format "117-XX"
-                if (zipField.getText().matches("([1][1][7])[0-9][0-9]")) {
+                if (passwordField.getText().matches(("^(?=.*[A-Z])(?=.*\\d.*\\d)[A-Za-z\\d]{5,10}$"))) {
                     createAccountButton.setOnAction(event -> {
 
                         try {
@@ -226,7 +258,7 @@ public class RegistrationController {
                             //declare a new root w that fxml file
                             Parent root = fxmlLoader.load();
                             DisplayController controller = fxmlLoader.getController();
-                            controller.setUserInfo(nameField.getText(), emailField.getText(), bdayField.getText(), zipField.getText());
+                            controller.setUserInfo(fscidField.getText(), nameField.getText(), emailField.getText(), majorField.getText(), passwordField.getText());
 
                             Scene scene = new Scene(root, 850, 560);
                             Stage stage = (Stage) createAccountButton.getScene().getWindow();
@@ -239,16 +271,16 @@ public class RegistrationController {
 
 
                     });
-                    zipField.setBorder(null);
+                    passwordField.setBorder(null);
                 } else
                 //if there is an error with the users data, change the appearance of the box
                 //show on the screen that the user's zip is invalid
                 //update flag
                 {
-                    zipField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
-                    zipField.setVisible(true);
-                    zipField.requestFocus();
-                    zipLabel.setText(zipField.getText() + " is not valid ZIP CODE");
+                    passwordField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    passwordField.setVisible(true);
+                    passwordField.requestFocus();
+                    passwordField.setText(passwordField.getText() + " is not valid passsword");
                     //    zipField.setEditable(false);
                     flag = true;
                 }
@@ -269,58 +301,58 @@ public class RegistrationController {
         return false;
     }
 
-    @FXML
-    public void checkUserName(){
-        String userName;
-        do{
-            String namePattern = "[A-Za-z]{2,12}[\\s][A-Za-z]{2,13}";
-            userName = nameField.getText();
-            Pattern nPattern = Pattern.compile(namePattern);
-            flag = userName.matches(namePattern);
-
-            if(!flag) {
-                //System.out.println("Invalid data");
-                addOutputLabel.setText("INVALID ENTRY");
-                nameField.setText("");
-                flag = userName.matches(namePattern);
-            }
-        } while (!flag);
-            System.out.println("valid data");
-            addOutputLabel.setText("valid");
-    }
-
-    /*
-
-        TRIGGER THE CHECK WHEN IN FOCUS, DELETE WHEN OUT OF FOCUS
-
-        if the email is invalid, the cursor cant select another field
-        also change the color/view of the tetxfield (in method setStyleclass);
-
-     */
-
-    /**
-     * This method check
-     */
-    @FXML
-    public void checkEmail(){
-        boolean flag;
-        String email;
-        do{
-            String namePattern = "[a-z][a-z0-9]{2,6}@farmingdale.edu";
-            email = emailField.getText();
-            Pattern nPattern = Pattern.compile(namePattern);
-            flag = email.matches(namePattern);
-
-            if(!flag) {
-                //System.out.println("Invalid data");
-                addOutputLabel.setText("INVALID ENTRY");
-                nameField.setText("");
-                flag = email.matches(namePattern);
-            }
-        } while (!flag);
-        System.out.println("valid data");
-        addOutputLabel.setText("valid");
-    }
+//    @FXML
+//    public void checkUserName(){
+//        String userName;
+//        do{
+//            String namePattern = "[A-Za-z]{2,12}[\\s][A-Za-z]{2,13}";
+//            userName = nameField.getText();
+//            Pattern nPattern = Pattern.compile(namePattern);
+//            flag = userName.matches(namePattern);
+//
+//            if(!flag) {
+//                //System.out.println("Invalid data");
+//                addOutputLabel.setText("INVALID ENTRY");
+//                nameField.setText("");
+//                flag = userName.matches(namePattern);
+//            }
+//        } while (!flag);
+//            System.out.println("valid data");
+//            addOutputLabel.setText("valid");
+//    }
+//
+//    /*
+//
+//        TRIGGER THE CHECK WHEN IN FOCUS, DELETE WHEN OUT OF FOCUS
+//
+//        if the email is invalid, the cursor cant select another field
+//        also change the color/view of the tetxfield (in method setStyleclass);
+//
+//     */
+//
+//    /**
+//     * This method check
+//     */
+//    @FXML
+//    public void checkEmail(){
+//        boolean flag;
+//        String email;
+//        do{
+//            String namePattern = "[a-z][a-z0-9]{2,6}@farmingdale.edu";
+//            email = emailField.getText();
+//            Pattern nPattern = Pattern.compile(namePattern);
+//            flag = email.matches(namePattern);
+//
+//            if(!flag) {
+//                //System.out.println("Invalid data");
+//                addOutputLabel.setText("INVALID ENTRY");
+//                nameField.setText("");
+//                flag = email.matches(namePattern);
+//            }
+//        } while (!flag);
+//        System.out.println("valid data");
+//        addOutputLabel.setText("valid");
+//    }
 
 
 

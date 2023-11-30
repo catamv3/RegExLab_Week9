@@ -9,7 +9,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="lcascading-vbox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.regexlab_week9.Controllers.DisplayController">
    <children>
-      <Label layoutX="73.0" layoutY="35.0" prefHeight="36.0" prefWidth="219.0" text="User Profile">
+      <Label layoutX="73.0" layoutY="35.0" prefHeight="36.0" prefWidth="219.0" styleClass="orange-label" text="User Profile">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="idLabel" layoutX="300.0" layoutY="9.0" prefHeight="80.0" prefWidth="219.0" styleClass="orange-label">
          <font>
             <Font size="25.0" />
          </font>
@@ -28,12 +33,12 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="10.0" layoutY="47.0" styleClass="neon-yellow-label" text="Birthday:">
+                  <Label layoutX="10.0" layoutY="47.0" styleClass="neon-yellow-label" text="Major">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label layoutX="10.0" layoutY="85.0" styleClass="gold-label" text="ZIP: ">
+                  <Label layoutX="10.0" layoutY="85.0" styleClass="gold-label" text="Password:">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>

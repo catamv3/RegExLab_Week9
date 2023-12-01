@@ -182,7 +182,7 @@ public class RegistrationController {
         majorField.setOnKeyPressed(event -> {
             if (event.getCode() != KeyCode.TAB && flag) {
                 majorField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
-                majorField.setText("");
+                majorLabel.setText("");
 
                 flag = false;
             }
@@ -228,7 +228,7 @@ public class RegistrationController {
         passwordField.setOnKeyPressed(event -> {
             if (event.getCode() != KeyCode.TAB && flag) {
                 passwordField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
-                passwordField.setText("");
+                passwordLabel.setText("");
 
                 flag = false;
             }
@@ -281,7 +281,7 @@ public class RegistrationController {
                     passwordField.setVisible(true);
                     passwordField.requestFocus();
                     passwordField.setText(passwordField.getText() + " is not valid passsword");
-                    //    zipField.setEditable(false);
+                    passwordField.setEditable(true);
                     flag = true;
                 }
             }

@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
  * This class stores information for the displayController sued to show information about an individual.
  */
 public class DisplayController {//open class
-    private String name, email, birthday, zip;
+    private String fscid, name, email, major, password;
     @FXML
     private Label fscidLabel, nameLabel, emailLabel, majorLabel, passwordLabel;
 
@@ -16,6 +16,11 @@ public class DisplayController {//open class
      * This is a default constructor.
      */
     public DisplayController(){
+        fscid = "";
+        name = "";
+        email = "";
+        major = "";
+        password = "";
     }
 
     /**
@@ -38,6 +43,11 @@ public class DisplayController {//open class
      * initialize method.
      */
     public void initialize(){
+        fscidLabel.setText("");
+        nameLabel.setText("");
+        majorLabel.setText("");
+        emailLabel.setText("");
+        passwordLabel.setText("");
     }
 
     /**

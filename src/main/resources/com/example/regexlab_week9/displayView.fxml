@@ -14,7 +14,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="idLabel" layoutX="300.0" layoutY="9.0" prefHeight="80.0" prefWidth="219.0" styleClass="orange-label">
+      <Label fx:id="fscidLabel" layoutX="300.0" layoutY="9.0" prefHeight="80.0" prefWidth="219.0" styleClass="orange-label">
          <font>
             <Font size="25.0" />
          </font>
@@ -63,7 +63,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="bdayLabel" layoutX="10.0" layoutY="46.0" prefHeight="36.0" prefWidth="217.0" styleClass="neon-yellow-label">
+                  <Label fx:id="majorLabel" layoutX="10.0" layoutY="46.0" prefHeight="36.0" prefWidth="217.0" styleClass="neon-yellow-label">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -71,7 +71,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="zipLabel" layoutX="10.0" layoutY="82.0" prefHeight="36.0" prefWidth="221.0" styleClass="gold-label">
+                  <Label fx:id="passwordLabel" layoutX="10.0" layoutY="82.0" prefHeight="36.0" prefWidth="221.0" styleClass="gold-label">
                      <font>
                         <Font size="16.0" />
                      </font>
